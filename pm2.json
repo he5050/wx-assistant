@@ -1,0 +1,21 @@
+{
+  "apps": [
+    {
+      "name": "wx-robot",
+      "script": "./pm2.js",
+      "max_memory_restart": "300M",
+      "min_uptime": "180s",
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "ignore_watch": [
+        "dist"
+      ],
+      "exec_mode": "cluster", // "fork cluster"
+      "instances": 4,
+      "error_file": "./logs/err.log",
+      "out_file": "./logs/out.log",
+      "watch": false
+    }
+  ]
+}
