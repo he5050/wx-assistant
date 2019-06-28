@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, user-scalable=no")
+    title 微信消息模板页
+    link(rel="stylesheet" href="./css/template.css")
+
+  body
+    div.main(style=`background-image: url(${oneImg})`)
+      div.content
+        p.weather
+          span.weather-temp= todayInfo.Temp
+          span.weather-status(style=`background-image: url(${weaImg})`)= todayInfo.WeatherText
+            span.day-tip=` ${toDayTime.ncWeek}`
+        p.date-tips=toDayLunar
+        p.weather-tips= weatherTips
+        p.date= `${toDayTime.cDay} ${toDayTime.cMonth}. ${toDayTime.cYear} | 一起的第`
+          span.day=`${memorialDay}`
+          span="天"
+        p.one-words= todayOne
+        p.tips-words= `------By 爱你的懒懒爸爸与小懒懒`

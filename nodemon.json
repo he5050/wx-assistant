@@ -1,0 +1,12 @@
+{
+    "env": {
+        "NODE_ENV": "development"
+    },
+    "watch": [
+        "app.js",
+        "middleware"
+    ],
+    "verbose": false,
+    "ext": ".js,.jsx",
+    "exec": "babel-node app.js"
+}
