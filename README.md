@@ -21,7 +21,7 @@ npm run dev
 > 生产环境
 ```sh
 npm run prod // 启动项目
-npm run stop // 启动项目
+npm run stop // 停用项目
 ```
 ## Tips
 
