@@ -46,10 +46,20 @@ export const getLanLan = date => {
     // console.log(moment().format("YYYY-MM-DD HH:mm:ss"));
     // console.log(moment(date, "YYYY/MM/DD").format("YYYY-MM-DD HH:mm:ss"));
     // let old = moment(date);
-    let diff = now.diff(old, "months", true);
-    // console.log(diff);
+    let diff = Math.floor(now.diff(old, "months", true));
+    console.log(diff);
     // return diff;
-    return Math.floor(diff);
+    let year = 0;
+    let month = diff;
+    if (diff > 12) {
+        year = Math.floor(diff / 12);
+        month = diff % 12;
+    }
+    return {
+        year,
+        month
+    };
+    // return year ? `${year}岁${month}个月` : `${month}个月`;
 };
 export const getDay = date => {
     let now = moment();

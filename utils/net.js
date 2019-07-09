@@ -52,7 +52,7 @@ export const getWeather = async () => {
     let res = await fetch(url, "GET");
     let $ = cheerio.load(res.text);
     let imgUrl = $(".wea_weather span img").attr("src");
-    console.log(imgUrl);
+    // console.log(imgUrl);
     let weatherTips = $(".wea_tips em").text();
     let nowTemp = $(".wea_weather em").text() + "°";
     let nowWeather = $(".wea_weather b").text();
@@ -139,8 +139,11 @@ export const getWeather = async () => {
 export const getTemplate = async () => {
     const browser = await puppeteer.launch({
         defaultViewport: {
-            width: 375,
-            height: 667
+            // tips: 标准2倍图 750 1334
+            // width: 375 ,
+            // height: 812
+            width: 414,
+            height: 736
         }
     });
     const page = await browser.newPage();

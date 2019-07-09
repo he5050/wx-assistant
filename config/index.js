@@ -17,11 +17,11 @@ const config = {
 
     //高级功能配置项（非必填项）
     AUTOREPLY: true, //自动聊天功能 默认关闭
-    AIBOTAPI: "http://api.tianapi.com/txapi/robot/", //天行机器人API 注册地址https://www.tianapi.com/signup.html?source=474284281
+    AIBOTAPI: "http://api.tianapi.com/txapi/robot/", // 也可以用图灵的，天行机器人API 注册地址https://www.tianapi.com/signup.html?source=474284281
     APIKEY: "c77e32865193f08f804194596e3f3095", //天行机器人apikey,
     QQAPPID: 2117508695,
-    QQAPPKEY: "Rhn2vsi6vxEV1kVQ",
-    BAIDUAPPID: 16593007,
+    QQAPPKEY: "Rhn2vsi6vxEV1kVQ", // 腾讯语义分析
+    BAIDUAPPID: 16593007, // 百度语义分析
     BAIDUAPIKEY: "8e7L3xL6qS1P1Yx5fTgeZod5",
     BAIDUSECRETKEY: "XMuqT1iww05qlzAxcLHh4wHdVd2x7md1"
 };

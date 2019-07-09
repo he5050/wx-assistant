@@ -1,6 +1,4 @@
-import { Wechaty, Friendship } from "wechaty";
-import path from "path";
-import puppeteer from "puppeteer";
+import { Wechaty } from "wechaty";
 import { FileBox } from "file-box";
 import express from "express";
 import config from "./config";
@@ -29,6 +27,7 @@ app.get("/temp", async (req, res) => {
     // const formatedDate = utils.getDate()
     // const days = utils.getDay(config.MEET_DAY)
     // const date = `${formatedDate} | 相遇的第${days}天`
+    let lanlanday = getLanLan(config.LANLAN_DAY); // 小宝贝
     res.render("template", {
         toDayTime,
         toDayLunar,
@@ -37,7 +36,8 @@ app.get("/temp", async (req, res) => {
         weatherTips,
         weaImg,
         memorialDay,
-        todayInfo
+        todayInfo,
+        lanlanday
     });
 });
 const bot = new Wechaty({ name: "懒懒小助手" });
@@ -46,7 +46,7 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 // 登录事件
 const onLogin = async user => {
     console.log(`贴心助理${user}登录了`);
-    // sendMsgToUser();
+    sendMsgToUser();
     // 登陆后创建定时任务
     setSchedule(config.SENDDATE, () => {
         console.log("开始任务");
@@ -119,49 +119,45 @@ const sendMsgToUser = async () => {
     let contact =
         (await bot.Contact.find({ name: config.NICKNAME })) ||
         (await bot.Contact.find({ alias: config.NAME })); // 获取你要发送的联系人
-    // try {
-    //     let contact =
-    //         (await bot.Contact.find({ name: config.NICKNAME })) ||
-    //         (await bot.Contact.find({ alias: config.NAME })); // 获取你要发送的联系人
-    //     await getTemplate();
-    //     const fileBox = FileBox.fromFile(config.TEP_PIC_NAME);
-    //     // const fileUrl = FileBox.fromUrl(
-    //     //     "http://image.wufazhuce.com/m.wufazhuce.com-startup-iPhone6P.png"
-    //     // );
-    //     console.log(fileBox);
-    //     // await contact.say("ok");
-    //     await contact.say(fileBox);
-    //     await contact.say("ok");
-    // } catch (e) {
-    //     console.log("出错了", e);
-    // }
-    let logMsg;
-    let { todayOne } = await getOne(); //获取每日一句
-    let weather = await getWeather(); //获取天气信息
-    let memorialDay = getDay(config.MEMORIAL_DAY); // 获取纪念日天数
-    let lanlanMonth = getLanLan(config.LANLAN_DAY); // 小宝贝
-    let str =
-        weather.dayInfo +
-        "<br>懒懒妈妈，这是我们在一起的第" +
-        memorialDay +
-        "天" +
-        "<br>元气满满的一天开始啦,要开心噢^_^<br>" +
-        `我们的小懒懒，现在有0岁${lanlanMonth}月了^_^<br>` +
-        "<br>今日温馨提示: <br>" +
-        weather.weatherTips +
-        "<br><br>" +
-        weather.todayWeather +
-        "<br>每日一句:<br>" +
-        todayOne +
-        "<br><br>" +
-        "————爱你的懒懒爸爸与小懒懒";
     try {
-        logMsg = str;
-        await contact.say(str); // 发送消息
+        let contact =
+            (await bot.Contact.find({ name: config.NICKNAME })) ||
+            (await bot.Contact.find({ alias: config.NAME })); // 获取你要发送的联系人
+        await getTemplate();
+        const fileBox = FileBox.fromFile(config.TEP_PIC_NAME);
+        // console.log(fileBox);
+        // await contact.say("ok");
+        await contact.say(fileBox);
     } catch (e) {
-        logMsg = e.message;
+        console.log("出错了", e);
     }
-    console.log(logMsg);
+    // let logMsg;
+    // let { todayOne } = await getOne(); //获取每日一句
+    // let weather = await getWeather(); //获取天气信息
+    // let memorialDay = getDay(config.MEMORIAL_DAY); // 获取纪念日天数
+    // let lanlanMonth = getLanLan(config.LANLAN_DAY); // 小宝贝
+    // let str =
+    //     weather.dayInfo +
+    //     "<br>懒懒妈妈，这是我们在一起的第" +
+    //     memorialDay +
+    //     "天" +
+    //     "<br>元气满满的一天开始啦,要开心噢^_^<br>" +
+    //     `我们的小懒懒，现在有0岁${lanlanMonth}月了^_^<br>` +
+    //     "<br>今日温馨提示: <br>" +
+    //     weather.weatherTips +
+    //     "<br><br>" +
+    //     weather.todayWeather +
+    //     "<br>每日一句:<br>" +
+    //     todayOne +
+    //     "<br><br>" +
+    //     "————爱你的懒懒爸爸与小懒懒";
+    // try {
+    //     logMsg = str;
+    //     await contact.say(str); // 发送消息
+    // } catch (e) {
+    //     logMsg = e.message;
+    // }
+    // console.log(logMsg);
 };
 const addSchedule = async obj => {
     // 添加定时提醒
