@@ -11,7 +11,7 @@ const app = express();
 app.use(express.static("views"));
 app.set("view engine", "pug");
 app.listen(4000, async () => {
-    console.log("app listening on port 3000!");
+    console.log("app listening on port 4000!");
 });
 app.get("/temp", async (req, res) => {
     let { todayOne, oneImg } = await getOne(); //获取每日一句
