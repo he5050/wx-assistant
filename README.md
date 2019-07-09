@@ -4,7 +4,9 @@
 ### 🏠 [Homepage](app.js)
 
 > 主要是依赖于wechaty 进行了的二次开发处理
->
+
+![1](https://ws3.sinaimg.cn/large/69abf49bly1g4tegu1orfj20cx0c4gmf.jpg)
+![微信图片_20190709105629](https://ws4.sinaimg.cn/large/69abf49bly1g4tehooqryj20bi0kgdsn.jpg)
 ## Install
 
 ```sh
