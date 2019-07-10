@@ -144,7 +144,8 @@ export const getTemplate = async () => {
             // height: 812
             width: 414,
             height: 736
-        }
+        },
+        args: ["--no-sandbox", "--disable-setuid-sandbox"]
     });
     const page = await browser.newPage();
     await page.goto(config.TEP_HOST);
