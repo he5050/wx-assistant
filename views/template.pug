@@ -10,7 +10,7 @@ html
     div.main(style=`background-image: url(${oneImg})`)
       div.content
         p.weather
-          span.weather-temp= `${todayInfo.tempArr[0]} / ${todayInfo.tempArr[1]}`
+          span.weather-temp= `${todayInfo.tempArr[0]}/${todayInfo.tempArr[1]}`
           span.weather-status(style=`background-image: url(${weaImg})`)= todayInfo.WeatherText
             span.day-tip=` ${toDayTime.ncWeek}`
         p.date-tips=toDayLunar
