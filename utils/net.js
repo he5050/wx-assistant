@@ -85,7 +85,7 @@ export const getWeather = async () => {
             .replace(/(^\s*)|(\s*$)/g, "")
     };
     // console.log("todayTemp", todayInfo.Temp);
-    // let {
+    let {
         cYear,
         cMonth,
         cDay,
