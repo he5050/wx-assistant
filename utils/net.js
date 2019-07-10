@@ -69,7 +69,8 @@ export const getWeather = async () => {
         Temp: $(today[2])
             .text()
             .replace(/(^\s*)|(\s*$)/g, "")
-            .replace(/\s/g, ""),
+            .replace(/\s/g, "")
+            .replace(" ", ""),
         Wind: $(today[3])
             .find("em")
             .text()
@@ -83,6 +84,7 @@ export const getWeather = async () => {
             .text()
             .replace(/(^\s*)|(\s*$)/g, "")
     };
+    console.log("todayTemp", todayInfo.Temp);
     let {
         cYear,
         cMonth,
