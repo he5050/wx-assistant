@@ -76,7 +76,8 @@ export const getWeather = async () => {
         WindLevel: $(today[3])
             .find("b")
             .text()
-            .replace(/(^\s*)|(\s*$)/g, ""),
+            .replace(/(^\s*)|(\s*$)/g, "")
+            .replace(/\s/g, ""),
         PollutionLevel: $(today[4])
             .find("strong")
             .text()
