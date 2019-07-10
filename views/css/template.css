@@ -34,9 +34,9 @@ body {
     content: "";
     display: inline-block;
     border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    border: 4px solid #fff;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #fff;
     position: absolute;
     top: 5px;
     right: -5px;
