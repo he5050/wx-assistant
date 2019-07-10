@@ -129,7 +129,7 @@ const sendMsgToUser = async () => {
         await getTemplate();
         const fileBox = FileBox.fromFile(config.TEP_PIC_NAME);
         // console.log(fileBox);
-        await contact.say("ok");
+        // await contact.say("ok");
         await contact.say(fileBox);
     } catch (e) {
         console.log("出错了", e);
