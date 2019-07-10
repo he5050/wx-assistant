@@ -28,7 +28,7 @@ app.get("/temp", async (req, res) => {
     // const days = utils.getDay(config.MEET_DAY)
     // const date = `${formatedDate} | 相遇的第${days}天`
     let lanlanday = getLanLan(config.LANLAN_DAY); // 小宝贝
-    todayInfo.tempArr = todayInfo.temp.split("/");
+    todayInfo.tempArr = todayInfo.Temp.split("/");
     res.render("template", {
         toDayTime,
         toDayLunar,
