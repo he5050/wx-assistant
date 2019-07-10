@@ -155,8 +155,7 @@ export const getTemplate = async () => {
     await page.screenshot({
         path: path.join(config.TEP_PIC_NAME),
         quality: 100,
-        omitBackground: true,
-        encoding: "base64"
+        omitBackground: true
     });
     await browser.close();
 };
