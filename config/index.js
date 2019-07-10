@@ -3,7 +3,7 @@ const config = {
     NAME: "以后请叫我嘿嘿", //备注姓名 以后请叫我嘿嘿 玲子
     NICKNAME: "以后请叫我嘿嘿", //昵称
     TEP_HOST: "http://localhost:4000/temp", // 生成消息图片用的HTML模板页面
-    TEP_PIC_NAME: "template.png", // 生成的消息图片名
+    TEP_PIC_NAME: "template.jpeg", // 生成的消息图片名
     TIPSARRAY: ["玲子", "以后请叫我嘿嘿"],
     HELPNAME: "@懒懒小助手",
     ROOMNAME: ["开黑群", "前端"],

@@ -138,6 +138,8 @@ export const getWeather = async () => {
 
 export const getTemplate = async () => {
     const browser = await puppeteer.launch({
+        ignoreHTTPSErrors: true,
+        headless: true,
         defaultViewport: {
             // tips: 标准2倍图 750 1334
             // width: 375 ,
@@ -150,6 +152,11 @@ export const getTemplate = async () => {
     const page = await browser.newPage();
     await page.goto(config.TEP_HOST);
     // 截屏
-    await page.screenshot({ path: path.join(config.TEP_PIC_NAME) });
+    await page.screenshot({
+        path: path.join(config.TEP_PIC_NAME),
+        quality: 100,
+        omitBackground: true,
+        encoding: "base64"
+    });
     await browser.close();
 };
