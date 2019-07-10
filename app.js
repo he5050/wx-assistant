@@ -46,7 +46,7 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 // 登录事件
 const onLogin = async user => {
     console.log(`贴心助理${user}登录了`);
-    // sendMsgToUser();
+    sendMsgToUser();
     // 登陆后创建定时任务
     setSchedule(config.SENDDATE, () => {
         console.log("开始任务");
