@@ -68,7 +68,8 @@ export const getWeather = async () => {
             .replace(/(^\s*)|(\s*$)/g, ""),
         Temp: $(today[2])
             .text()
-            .replace(/(^\s*)|(\s*$)/g, ""),
+            .replace(/(^\s*)|(\s*$)/g, "")
+            .replace(/\s/g, ""),
         Wind: $(today[3])
             .find("em")
             .text()
@@ -76,8 +77,7 @@ export const getWeather = async () => {
         WindLevel: $(today[3])
             .find("b")
             .text()
-            .replace(/(^\s*)|(\s*$)/g, "")
-            .replace(/\s/g, ""),
+            .replace(/(^\s*)|(\s*$)/g, ""),
         PollutionLevel: $(today[4])
             .find("strong")
             .text()
