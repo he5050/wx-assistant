@@ -7,9 +7,11 @@ import { setSchedule, getDay, getLanLan, getKeyWord, getTextChat } from "./utils
 import onScan from "./middleware/scan";
 import onLogout from "./middleware/logout";
 import onFriendShip from "./middleware/friend";
+
 const app = express();
 app.use(express.static("views"));
 app.set("view engine", "pug");
+
 app.listen(4000, async () => {
     console.log("app listening on port 4000!");
 });

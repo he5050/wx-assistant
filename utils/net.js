@@ -70,7 +70,7 @@ export const getWeather = async () => {
             .text()
             .replace(/(^\s*)|(\s*$)/g, "")
             .replace(/\s/g, "")
-            .replace(" ", ""),
+            .replace(/\°/g, ""),
         Wind: $(today[3])
             .find("em")
             .text()
