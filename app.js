@@ -93,6 +93,9 @@ const onMessage = async msg => {
             //         "你好，很高兴成为你的小秘书，来试试我的新功能吧！回复案例：“提醒 我 18:30 下班回家”，创建你的专属提醒，记得关键词之间使用空格分隔开"
             //     );
             // }
+            if (content === "天气") {
+                sendMsgToUser();
+            }
             if (keywordArray[0] === "提醒") {
                 let scheduleObj = {};
                 if (keywordArray[1] === "我") {
@@ -128,7 +131,7 @@ const sendMsgToUser = async () => {
             (await bot.Contact.find({ alias: config.NAME })); // 获取你要发送的联系人
         await getTemplate();
         const fileBox = FileBox.fromFile(config.TEP_PIC_NAME);
-        // console.log(fileBox);
+        console.log(fileBox);
         // await contact.say("ok");
         await contact.say(fileBox);
     } catch (e) {
