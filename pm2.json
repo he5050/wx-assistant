@@ -11,8 +11,8 @@
       "ignore_watch": [
         "dist"
       ],
-      "exec_mode": "cluster", // "fork cluster"
-      "instances": 4,
+      "exec_mode": "fork", // "fork cluster"
+      "instances": 1,
       "error_file": "./logs/err.log",
       "out_file": "./logs/out.log",
       "watch": false

@@ -135,6 +135,9 @@ const sendMsgToUser = async () => {
         // await contact.say("ok");
         await contact.say(fileBox);
     } catch (e) {
+        setTimeout(() => {
+            sendMsgToUser();
+        }, 5000);
         console.log("出错了", e);
     }
     // let logMsg;
