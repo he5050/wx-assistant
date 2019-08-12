@@ -1,5 +1,18 @@
+/*
+ * @Author: hjf
+ * @Date: 2019-06-19 17:26:01
+ * @LastEditors: hjf
+ * @LastEditTime: 2019-08-12 08:59:24
+ * @Email: 476532333@qq.com
+ * @Company: 天行者
+ * @Verson: 1.0
+ * @Description:
+ * @TODO:
+ * @FIXME:
+ */
 const config = {
     // 基础定时发送功能配置项（必填项）
+    MYNAME: "以后请叫我嘿嘿",
     NAME: "玲子", //备注姓名 以后请叫我嘿嘿 玲子
     NICKNAME: "玲子", //昵称
     TEP_HOST: "http://localhost:4000/temp", // 生成消息图片用的HTML模板页面

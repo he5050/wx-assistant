@@ -1,3 +1,15 @@
+/*
+ * @Author: hjf
+ * @Date: 2019-06-18 16:50:46
+ * @LastEditors: hjf
+ * @LastEditTime: 2019-08-12 09:00:04
+ * @Email: 476532333@qq.com
+ * @Company: 天行者
+ * @Verson: 1.0
+ * @Description:
+ * @TODO:
+ * @FIXME:
+ */
 import { Wechaty } from "wechaty";
 import { FileBox } from "file-box";
 import express from "express";
@@ -59,6 +71,7 @@ const onLogin = async user => {
 // 消息监听
 const onMessage = async msg => {
     // console.log(msg);
+    const type = msg.type();
     const contact = msg.from(); // 发消息人
     const content = msg.text(); //消息内容
     const room = msg.room(); //是否是群消息
@@ -79,11 +92,11 @@ const onMessage = async msg => {
         }
     } else {
         // 如果非群消息
-        console.log(`发消息人: ${msgName} 消息内容: ${content}`);
+        // console.log(`发消息人: ${msgName} 消息内容: ${content}`);
         // 提醒
         if (config.TIPSARRAY.includes(msgName)) {
             let keywordArray = content.replace(/\s+/g, " ").split(" "); // 把多个空格替换成一个空格，并使用空格作为标记，拆分关键词
-            console.log("分词后效果", keywordArray);
+            // console.log("分词后效果", keywordArray);
             // if (keywordArray[0] === "提醒") {
             //     let scheduleObj = untils.contentDistinguish(contact, keywordArray);
             //     addSchedule(scheduleObj);
@@ -115,6 +128,22 @@ const onMessage = async msg => {
                 contact.say(
                     "来试试我的新功能吧！回复案例：“提醒 我(以后请加我嘿嘿) 18 30 下班回家”，创建提醒，记得关键词之间使用空格分隔开"
                 );
+            }
+        }
+        if (msgName === config.NAME) {
+            const AAA = await bot.Contact.find({ name: config.MYNAME });
+            // console.log(type);
+            if (
+                type === bot.Message.Type.Image ||
+                type === bot.Message.Type.Audio ||
+                type === bot.Message.Type.Video
+            ) {
+                const filename = await msg.toFileBox();
+                // console.log(filename);
+                AAA.say(filename);
+            }
+            if (type === bot.Message.Type.Text) {
+                AAA.say(content);
             }
         }
     }
