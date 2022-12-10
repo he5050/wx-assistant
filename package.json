@@ -59,7 +59,7 @@
     "baidu-aip-sdk": "^2.4.4",
     "cheerio": "^1.0.0-rc.3",
     "dateformat": "^3.0.3",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "file-box": "^0.8.27",
     "koa": "^2.10.0",
     "moment": "^2.24.0",
